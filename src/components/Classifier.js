@@ -37,14 +37,14 @@ export default function Classifier() {
     const classes = useStyles();
     return <div className={classes.root}>
         <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
+            <Grid item>
                 <DropImageCard setFile={setFile} canvasRef={canvas} fileLoaded={!!file} />
                 { !loaded && <LoadingSnackbar message="Loading model..." /> }
                 { loaded && data && !outputMap && <LoadingSnackbar message="Running model..." /> }
                 { !file && <InfoSnackbar message="Add or take a picture..." /> }
                 { !!file && !data && <LoadingSnackbar message="Loading image..." /> }
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item>
                 <Predictions output={outputData} />
             </Grid>
         </Grid>

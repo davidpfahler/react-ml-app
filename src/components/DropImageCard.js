@@ -12,7 +12,7 @@ const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 20,
+        marginBottom: 10,
     },
     canvas: {
         width: 299,

@@ -31,7 +31,7 @@ export default function Classifier() {
     useEffect(() => {
         if (!loaded || !data) return;
         runModel(session, data, setOutputMap);
-    }, [loaded, data]); // runs when loaded or input changes    
+    }, [loaded, data]); // runs when loaded or data changes    
     const outputData = outputMap && outputMap.values().next().value.data;
     
     const classes = useStyles();
@@ -41,7 +41,7 @@ export default function Classifier() {
                 <DropImageCard setFile={setFile} canvasRef={canvas} fileLoaded={!!file} />
                 { !loaded && <LoadingSnackbar message="Loading model..." /> }
                 { loaded && data && !outputMap && <LoadingSnackbar message="Running model..." /> }
-                { !file && <InfoSnackbar message="Waiting for image..." /> }
+                { !file && <InfoSnackbar message="Add or take a picture..." /> }
                 { !!file && !data && <LoadingSnackbar message="Loading image..." /> }
             </Grid>
             <Grid item xs={12} sm={6}>

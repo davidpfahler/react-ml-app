@@ -1,6 +1,6 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davidpfahler/react-resnet-app/blob/master/train_dog_classifier_with_fastai_to_ONNX.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davidpfahler/react-ml-app/blob/master/train_dog_classifier_with_fastai_to_ONNX.ipynb)
 
-# react-resnet-app
+# react-ml-app
 
 This pet project of mine serves as an end-to-end example of how to create a privacy-first machine learning application that run in the browser. It demonstratetes how to train a model in fastai or PyTorch, export it to the ONNX interface format and run it in the browser using onnx.js inside a react app.
 
@@ -14,7 +14,7 @@ Because I am a dog lover (sorry cat friends, but you can easily train your own c
 
 I used the [Stanford Dogs Dataset](http://vision.stanford.edu/aditya86/ImageNetDogs/), which contains 137 different breeds of dogs with about 150 images per breed.
 
-The training process is described in detail in [this jupyter notebook](train_dog_classifier_with_fastai_to_ONNX.ipynb) (coming soon). Note: You can [run this notebook for free in Google Colabatory](https://colab.research.google.com/github/davidpfahler/react-resnet-app/blob/master/train_dog_classifier_with_fastai_to_ONNX.ipynb) if you have a Google account.
+The training process is described in detail in [this jupyter notebook](train_dog_classifier_with_fastai_to_ONNX.ipynb) (coming soon). Note: You can [run this notebook for free in Google Colabatory](https://colab.research.google.com/github/davidpfahler/react-ml-app/blob/master/train_dog_classifier_with_fastai_to_ONNX.ipynb) if you have a Google account.
 
 I am using a resnet34 architecture, but I am planning to investigate more efficient architectures in the future and will update this project accordingly if I find them to be useful.
 

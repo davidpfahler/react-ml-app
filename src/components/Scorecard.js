@@ -12,7 +12,11 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     card: {
         width: 299,
-    }
+        height: 299,
+    },
+    item: {
+        paddingTop: 10,
+    },
 });
 
 export default function Scorecard({items}) {
@@ -20,7 +24,7 @@ export default function Scorecard({items}) {
     return <Card className={classes.card}><List dense>
         {items.map(({avatar, name, percentage}) => {
             const id = `${name}-${percentage}`
-            return <ListItem key={id}>
+            return <ListItem key={id} className={classes.item}>
                 <ListItemAvatar>
                     <Avatar
                         alt={`image of ${name}`}

@@ -3,6 +3,10 @@ import classes from './classes'
 import beagle from '../beagle.jpg'
 import Scorecard from './Scorecard';
 
+const getBreed = className => className.split('_').map(p => {
+    return p.charAt(0).toUpperCase() + p.slice(1)
+}).join(' ')
+
 const getTopK = (acts, k) => {
     const top5 = Array.from(acts)
         .map((act, i) => [act, i])
@@ -17,7 +21,7 @@ const getTopK = (acts, k) => {
     // denominator of softmax function
     const denominator = acts.map(y => Math.exp(y)).reduce((a,b) => a+b)
     return top5.map(([act, i], _, acts) => ({
-        breed: classes[i],
+        breed: getBreed(classes[i]),
         act,
         prob: Math.exp(act) / denominator,
     }));

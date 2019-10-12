@@ -41,16 +41,17 @@ export function InfoSnackbar({message}) {
                 {message}
             </span>
         } />
-    </Box>
+    </Box>;
 }
 
 export function LoadingSnackbar({message}) {
     const classes = useStyles();
-    return <Snackbar open anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'left',
-    }} message={<span className={classes.message}>
-        <CircularProgress size={20} className={classes.iconVariant} />
-        {message}
-    </span>} />
+    return <Box className={classes.box}>
+        <SnackbarContent className={classes.content} message={
+            <span className={classes.message}>
+                <CircularProgress size={20} className={classes.iconVariant} />
+                {message}
+            </span>
+        } />
+    </Box>;
 }

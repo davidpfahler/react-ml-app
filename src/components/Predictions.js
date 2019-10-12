@@ -1,17 +1,7 @@
 import React from 'react';
 import classes from './classes'
 import Scorecard from './Scorecard';
-
-const getBreed = className => className.split('_').map(p => {
-    return p.charAt(0).toUpperCase() + p.slice(1)
-}).join(' ')
-
-const getBreedImg = className => {
-    const breed = className.split('_').map(p => {
-        return p.charAt(0).toLowerCase() + p.slice(1)
-    }).join('_')
-    return `${process.env.PUBLIC_URL}/images/${breed}.jpg`
-}
+import {getBreedImg, getBreed} from './utils';
 
 const getTopK = (acts, k) => {
     const top5 = Array.from(acts)

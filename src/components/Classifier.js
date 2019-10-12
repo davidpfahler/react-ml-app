@@ -1,10 +1,11 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useRef, useEffect, useState, useCallback} from 'react';
 import Predictions from './Predictions';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import {InfoSnackbar, LoadingSnackbar } from './Snackbars'
 import DropImageCard from './DropImageCard'
 import { fetchImage, makeSession, loadModel, runModel } from './utils'
+import Button from '@material-ui/core/Button';
 
 const session = makeSession();
 
@@ -17,8 +18,15 @@ const useStyles = makeStyles(theme => ({
 
 export default function Classifier() {
     const [loaded, setLoaded] = useState(false);
-    useEffect(() => { loadModel(session, setLoaded) }, []); // runs once
-
+    const [isLoading, setIsLoading] = useState(false);
+    const startLoadModel = useCallback(async () => {
+        if (isLoading || loaded) { return; }
+        setIsLoading(true);
+        await loadModel(session);
+        setLoaded(true);
+        setIsLoading(false);
+    })
+    
     const [file, setFile] = useState(null)    
     const canvas = useRef(null)
     const [data, setData] = useState(null)
@@ -39,9 +47,10 @@ export default function Classifier() {
         <Grid container spacing={3}>
             <Grid item>
                 <DropImageCard setFile={setFile} canvasRef={canvas} fileLoaded={!!file} />
-                { !loaded && <LoadingSnackbar message="Loading model..." /> }
+                { !loaded && !isLoading && <Button variant="contained" onClick={startLoadModel}>Load model (88 MB)</Button>}
+                { !loaded && isLoading && <LoadingSnackbar message="Loading model..." /> }
                 { loaded && data && !outputMap && <LoadingSnackbar message="Running model..." /> }
-                { !file && <InfoSnackbar message="Add or take a picture..." /> }
+                { loaded && !file && <InfoSnackbar message="Add or take a picture..." /> }
                 { !!file && !data && <LoadingSnackbar message="Loading image..." /> }
             </Grid>
             <Grid item>

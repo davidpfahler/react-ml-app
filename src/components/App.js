@@ -10,6 +10,16 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Avatar from '@material-ui/core/Avatar';
+import credits from './credits';
+import Button from '@material-ui/core/Button';
+import breeds from './classes'
+import {getBreed} from './utils'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -27,6 +37,16 @@ const useStyles = makeStyles(theme => ({
     heading: {
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
+    },
+    table: {
+        width: '100%',
+    },
+    footer: {
+        padding: theme.spacing(2),
+        marginTop: 'auto',
+    },
+    button: {
+        margin: theme.spacing(1),
     },
 }));
 
@@ -54,7 +74,7 @@ function App() {
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                 <Typography variant="body2">
-                    Tab on the image icon to take a photo of a dog and drag and drop an image file of a dog on the image icon to classify the dog's breed. Note that only 120 different dog breeds are supported. If your image shows a different dog bread, the prediction will be pretty meaningless.
+                    Tab on the image icon to take a photo of a dog and drag and drop an image file of a dog on the image icon to classify the dog's breed. Note that only {breeds.length} different dog breeds are supported. If your image shows a different dog bread, the prediction will be pretty meaningless.
                 </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -68,7 +88,8 @@ function App() {
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                 <Typography variant="body2">
-                    This classifier is based on the <Link to="http://vision.stanford.edu/aditya86/ImageNetDogs/">Stanford Dogs Dataset</Link>, which contains 120 different breeds. You can find them in the <Link to="https://github.com/davidpfahler/react-ml-app/blob/master/src/components/classes.js">classes.js file</Link>. 
+                    This classifier is based on the <Link to="http://vision.stanford.edu/aditya86/ImageNetDogs/">Stanford Dogs Dataset</Link>, which contains {breeds.length} different breeds.
+                    Here is a list of all of them: {breeds.map(breed => getBreed(breed)).join(', ')}. 
                 </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -92,7 +113,7 @@ function App() {
                 aria-controls="panel3a-content"
                 id="panel3a-header"
                 >
-                <Typography className={classes.heading}>What happens to my data? (Privacy Policy)</Typography>
+                <Typography className={classes.heading}>What happens to my data?</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                 <Typography variant="body2">
@@ -100,9 +121,56 @@ function App() {
                 </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
+            <ExpansionPanel>
+                <ExpansionPanelSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel3a-content"
+                id="panel3a-header"
+                >
+                <Typography className={classes.heading}>Image credits</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Container>
+                        <Typography variant="body2">
+                            Most images to illustrate the different dog breeds are sourced from pixabay.com, which are free for commercial use and do not require attribution.
+                            Some images are sourced from Wikipedia or Wikimedia and are licensed under a variant of the Creative Commons License. The below table contains the required attribution:
+                        </Typography>
+                        <Table className={classes.table}>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell></TableCell>
+                                    <TableCell>Breed</TableCell>
+                                    <TableCell>Source Link</TableCell>
+                                    <TableCell>Author</TableCell>
+                                    <TableCell>License</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                            {credits.map(row => (
+                                <TableRow key={row.breed}>
+                                    <TableCell><Avatar
+                                        alt={`image of ${row.breed}`}
+                                        src={row.img}
+                                    /></TableCell>
+                                    <TableCell component="th" scope="row">
+                                        {row.breed}
+                                    </TableCell>
+                                    <TableCell><Link to={row.source}>Link to source</Link></TableCell>
+                                    <TableCell>{row.author}</TableCell>
+                                    <TableCell>{row.license}</TableCell>
+                                </TableRow>
+                            ))}
+                            </TableBody>
+                        </Table>
+                    </Container>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+            <footer class={classes.footer}>
+                <Button className={classes.button}><Link to="https://davidpfahler.com/privacy-policy/">Privacy Policy</Link></Button>
+                <Button className={classes.button}><Link to="https://davidpfahler.com/impressum/">Impressum</Link></Button>
+            </footer>
         </Container>
   </div>;
-        ;
 }
 
 export default App;

@@ -4,6 +4,17 @@ import {Tensor, InferenceSession} from 'onnxjs';
 import ndarray from 'ndarray';
 import ops from 'ndarray-ops';
 
+export const getBreed = className => className.split('_').map(p => {
+    return p.charAt(0).toUpperCase() + p.slice(1)
+}).join(' ')
+
+export const getBreedImg = className => {
+    const breed = className.split('_').map(p => {
+        return p.charAt(0).toLowerCase() + p.slice(1)
+    }).join('_')
+    return `${process.env.PUBLIC_URL}/images/${breed}.jpg`
+}
+
 export const makeSession = (() => {
     let _session = null;
     return () => {
@@ -22,10 +33,9 @@ async function warmupModel (session) {
     await session.run([warmupTensor]);
 }
 
-export async function loadModel (session, setLoaded) {
+export async function loadModel (session) {
     await session.loadModel(resnet);
     await warmupModel(session);
-    setLoaded(true);
 }
 
 async function _runModel (session, input, setOutputMap) {

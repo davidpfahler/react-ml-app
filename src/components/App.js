@@ -166,8 +166,8 @@ function App() {
                 </ExpansionPanelDetails>
             </ExpansionPanel>
             <footer className={classes.footer}>
-                <Button className={classes.button}><Link to="https://davidpfahler.com/privacy-policy/">Privacy Policy</Link></Button>
-                <Button className={classes.button}><Link to="https://davidpfahler.com/impressum/">Impressum</Link></Button>
+                <Button className={classes.button} href="https://davidpfahler.com/privacy-policy/">Privacy Policy</Button>
+                <Button className={classes.button} href="https://davidpfahler.com/impressum/">Impressum</Button>
             </footer>
         </Container>
   </div>;

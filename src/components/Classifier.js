@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useState, useCallback} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import Predictions from './Predictions';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -19,13 +19,13 @@ const useStyles = makeStyles(theme => ({
 export default function Classifier() {
     const [loaded, setLoaded] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const startLoadModel = useCallback(async () => {
+    const startLoadModel = async () => {
         if (isLoading || loaded) { return; }
         setIsLoading(true);
         await loadModel(session);
         setLoaded(true);
         setIsLoading(false);
-    })
+    }
     
     const [file, setFile] = useState(null)    
     const canvas = useRef(null)

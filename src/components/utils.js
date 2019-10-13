@@ -2,8 +2,7 @@ import loadImage from 'blueimp-load-image';
 import {Tensor, InferenceSession} from 'onnxjs';
 import ndarray from 'ndarray';
 import ops from 'ndarray-ops';
-
-const resnet = `${process.env.PUBLIC_URL}/dogs-resnet34.onnx.bmp`;
+import resnet from '../dogs-resnet34.onnx';
 
 export const getBreed = className => className.split('_').map(p => {
     return p.charAt(0).toUpperCase() + p.slice(1)

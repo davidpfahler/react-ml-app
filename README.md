@@ -1,4 +1,4 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davidpfahler/react-ml-app/blob/master/train_dog_classifier_with_fastai_to_ONNX.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/davidpfahler/react-ml-app/blob/master/train_dog_classifier_with_fastai_export_to_ONNX.ipynb)
 
 # react-ml-app
 

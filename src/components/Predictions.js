@@ -4,7 +4,7 @@ import Scorecard from './Scorecard';
 import {getBreedImg, getBreed} from './utils';
 
 const getTopK = (acts, k) => {
-    const top5 = Array.from(acts)
+    const topK = Array.from(acts)
         .map((act, i) => [act, i])
         .sort((a, b) => {
             if (a[0] < b[0]) return -1;
@@ -16,7 +16,7 @@ const getTopK = (acts, k) => {
 
     // denominator of softmax function
     const denominator = acts.map(y => Math.exp(y)).reduce((a,b) => a+b)
-    return top5.map(([act, i], _, acts) => ({
+    return topK.map(([act, i], _, acts) => ({
         breed: classes[i],
         act,
         prob: Math.exp(act) / denominator,

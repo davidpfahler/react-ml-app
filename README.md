@@ -2,7 +2,7 @@
 
 # react-ml-app
 
-This pet project of mine serves as an end-to-end example of how to create a privacy-first machine learning application that run in the browser. It demonstratetes how to train a model in fastai or PyTorch, export it to the ONNX interface format and run it in the browser using onnx.js inside a react app.
+This pet project of mine serves as an end-to-end example of how to create a privacy-first machine learning application that runs in the browser. It demonstratetes how to train a PyTorch model with fastai, export it to ONNX format and run it in the browser using onnx.js inside a react app.
 
 ## Goal
 

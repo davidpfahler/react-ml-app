@@ -41,7 +41,7 @@ export default [
     'Kerry_blue_terrier',
     'Labrador_retriever',
     'Lakeland_terrier',
-    'Leonberg',
+    'Leonberger',
     'Lhasa',
     'Maltese_dog',
     'Mexican_hairless',

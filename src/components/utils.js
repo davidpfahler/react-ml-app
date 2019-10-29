@@ -10,7 +10,7 @@ export const getBreed = className => className.split('_').map(p => {
 
 export const getBreedImg = className => {
     const breed = className.split('_').map(p => {
-        return p.charAt(0).toLowerCase() + p.slice(1)
+        return p.charAt(0).toLowerCase() + p.slice(1).toLowerCase()
     }).join('_')
     return `${process.env.PUBLIC_URL}/images/${breed}.jpg`
 }

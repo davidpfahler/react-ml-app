@@ -16,7 +16,7 @@ I used the [Stanford Dogs Dataset](http://vision.stanford.edu/aditya86/ImageNetD
 
 The training process is described in detail in [this jupyter notebook](train_dog_classifier_with_fastai_export_to_ONNX.ipynb). Note: You can [run this notebook for free in Google Colabatory](https://colab.research.google.com/github/davidpfahler/react-ml-app/blob/master/train_dog_classifier_with_fastai_export_to_ONNX.ipynb) if you have a Google account.
 
-I am using a resnet34 architecture, but I am planning to investigate more efficient architectures in the future and will update this project accordingly if I find them to be useful.
+I am using a resnet18 architecture, but I am planning to investigate more efficient architectures in the future and will update this project accordingly if I find them to be useful.
 
 ## The Frontend
 

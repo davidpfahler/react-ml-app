@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/react-ml-app/static/js/main.544a0a34.chunk.js",
+    "main.js.map": "/react-ml-app/static/js/main.544a0a34.chunk.js.map",
+    "runtime-main.js": "/react-ml-app/static/js/runtime-main.aa796005.js",
+    "runtime-main.js.map": "/react-ml-app/static/js/runtime-main.aa796005.js.map",
+    "static/js/2.d2ac6986.chunk.js": "/react-ml-app/static/js/2.d2ac6986.chunk.js",
+    "static/js/2.d2ac6986.chunk.js.map": "/react-ml-app/static/js/2.d2ac6986.chunk.js.map",
+    "index.html": "/react-ml-app/index.html",
+    "precache-manifest.71935e362ada466a195fd286b0c7a0bd.js": "/react-ml-app/precache-manifest.71935e362ada466a195fd286b0c7a0bd.js",
+    "service-worker.js": "/react-ml-app/service-worker.js",
+    "static/media/dogs-resnet18.onnx": "/react-ml-app/static/media/dogs-resnet18.e15a2861.onnx"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aa796005.js",
+    "static/js/2.d2ac6986.chunk.js",
+    "static/js/main.544a0a34.chunk.js"
+  ]
+}
